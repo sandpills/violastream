@@ -1,0 +1,22 @@
+{
+  "name": "population-infinite-performance",
+  "version": "1.0.0",
+  "description": "### A performance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viololahe/population-infinite-performance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viololahe/population-infinite-performance/issues"
+  },
+  "homepage": "https://github.com/viololahe/population-infinite-performance#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
