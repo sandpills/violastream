@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/index.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -11,16 +13,27 @@
       <h1>users go here and click buttons 😈</h1>
     </div>
     <div class="commands">
-      <button class="button">Eat cookie</button>
-      <button class="button">Make a cake</button>
-      <button class="button">Drink water</button>
-      <button class="button">1 pushup</button>
-      <button class="button">Read books</button>
-      <button class="button">Stretch</button>
-      <button class="button">Jumping Jack</button>
-      <button class="button">Play music</button>
-      <button class="button">Go for a walk</button>
-      <button class="button">Call a friend</button>
+      <button onClick="buttonClick(this)" class="button">Eat cookie</button>
+      <button onClick="buttonClick(this)" class="button">Make a cake</button>
+      <button onClick="buttonClick(this)" class="button">Drink water</button>
+      <button onClick="buttonClick(this)" class="button">1 pushup</button>
+      <button onClick="buttonClick(this)" class="button">Read books</button>
+      <button onClick="buttonClick(this)" class="button">Stretch</button>
+      <button onClick="buttonClick(this)" class="button">Jumping Jack</button>
+      <button onClick="buttonClick(this)" class="button">Play music</button>
+      <button onClick="buttonClick(this)" class="button">Go for a walk</button>
+      <button onClick="buttonClick(this)" class="button">Call a friend</button>
     </div>
+    <!-- <div class="container">
+      <iframe
+        class="iframe"
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/5qap5aO4i9A?controls=0"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div> -->
   </body>
 </html>
