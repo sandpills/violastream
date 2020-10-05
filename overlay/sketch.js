@@ -17,7 +17,11 @@ function draw() {
 
 function receiveTask({ task }) {
   console.log('receiving task... I MUST: ', task);
-  taskArray.push(task);
+  if (task == 'endTask') {
+    taskArray.shift();
+  } else {
+    taskArray.push(task);
+  }
   console.log(taskArray);
 }
 
