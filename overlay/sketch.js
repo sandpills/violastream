@@ -8,7 +8,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(0, 255, 0);
   textSize(24);
   for (let i = 0; i < taskArray.length; i++) {
     text(taskArray[i], 0, 30 + i * 30);
