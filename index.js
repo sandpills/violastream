@@ -1,10 +1,14 @@
 let counter = 0;
+var _ = require('lodash');
 var express = require('express');
 var app = express();
 var http = require('http').createServer(app);
 const options = {
   /* ... */
 };
+let taskArray = [];
+let voteCounts = {};
+
 const io = require('socket.io')(http, options);
 io.on('connection', socket => {
   console.log(socket.id);
@@ -21,9 +25,18 @@ http.listen(process.env.PORT || 3000, process.env.IP, () => {
 
 io.sockets.on('connection', socket => {
   socket.on('task', data => {
-    socket.broadcast.emit('task', data);
-    console.log(data);
-    counter++;
-    console.log(counter);
+    taskArray.push(data.task);
+    voteCounts = _.countBy(taskArray);
+
+    let votesSorted = Object.keys(voteCounts).sort(function (a, b) {
+      return voteCounts[a] - voteCounts[b];
+    });
+
+    if (data.task == 'endTask') {
+      socket.broadcast.emit('mostVotes', taskArray);
+    } else {
+      console.log(taskArray);
+      socket.broadcast.emit('taskList', taskArray);
+    }
   });
 });
