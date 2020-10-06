@@ -12,6 +12,7 @@ function draw() {
   background(0, 255, 0);
   textSize(24);
   noStroke();
+  rectMode(CORNER);
   rect(0, 0, 200, 50 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
@@ -19,7 +20,11 @@ function draw() {
   }
   textSize(36);
   textAlign(CENTER);
-  text(title, width / 2, 50);
+  if (title !== '') {
+    rectMode(CENTER);
+    rect(width / 2, 40, 400, 50);
+    text(title, width / 2, 50);
+  }
 }
 
 function receiveTask(data) {
