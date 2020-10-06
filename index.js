@@ -8,7 +8,7 @@ const options = {
 };
 let taskArray = [];
 let voteCounts = {};
-
+let votesSorted = {};
 const io = require('socket.io')(http, options);
 io.on('connection', socket => {
   console.log(socket.id);
@@ -25,18 +25,22 @@ http.listen(process.env.PORT || 3000, process.env.IP, () => {
 
 io.sockets.on('connection', socket => {
   socket.on('task', data => {
-    taskArray.push(data.task);
-    voteCounts = _.countBy(taskArray);
+    if (data.task !== 'endTask') {
+      taskArray.push(data.task);
+      voteCounts = _.countBy(taskArray);
 
-    let votesSorted = Object.keys(voteCounts).sort(function (a, b) {
-      return voteCounts[a] - voteCounts[b];
-    });
-
-    if (data.task == 'endTask') {
-      socket.broadcast.emit('mostVotes', taskArray);
-    } else {
-      console.log(taskArray);
+      votesSorted = Object.keys(voteCounts).sort(function (a, b) {
+        return voteCounts[a] - voteCounts[b];
+      });
       socket.broadcast.emit('taskList', taskArray);
+    } else {
+      let winner =
+        votesSorted[
+          Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
+        ];
+
+      socket.broadcast.emit('taskList', winner);
+      taskArray = [];
     }
   });
 });

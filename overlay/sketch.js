@@ -6,12 +6,13 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   socket = io.connect();
   socket.on('taskList', receiveTask);
-  socket.on('title', mostVotes);
 }
 
 function draw() {
   background(0, 255, 0);
   textSize(24);
+  noStroke();
+  rect(0, 0, 200, 50 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 30 + i * 50);
@@ -22,11 +23,14 @@ function draw() {
 }
 
 function receiveTask(data) {
-  tasks = data;
-}
-
-function mostVotes(winner) {
-  title = winner;
+  if (Array.isArray(data)) {
+    tasks = data;
+  } else {
+    if (typeof data === 'string') {
+      tasks = [];
+      title = data;
+    }
+  }
 }
 
 function windowResized() {
