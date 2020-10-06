@@ -1,6 +1,7 @@
 let socket;
 let title = '';
 let tasks = [];
+let winnerCount;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -9,11 +10,12 @@ function setup() {
 }
 
 function draw() {
+  textFont('monospace');
   background(0, 255, 0);
   textSize(24);
   noStroke();
   rectMode(CORNER);
-  rect(0, 0, 200, 50 * tasks.length);
+  rect(0, 0, 270, 50 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 30 + i * 50);
@@ -22,18 +24,20 @@ function draw() {
   textAlign(CENTER);
   if (title !== '') {
     rectMode(CENTER);
-    rect(width / 2, 40, 400, 50);
+    rect(width / 2, 40, 900, 50);
+
     text(title, width / 2, 50);
   }
 }
 
-function receiveTask(data) {
+function receiveTask(data, count) {
   if (Array.isArray(data)) {
     tasks = data;
   } else {
     if (typeof data === 'string') {
       tasks = [];
-      title = data;
+      title = 'viola must: ' + data + ' (' + str(count) + ' votes)';
+      winnerCount = count;
     }
   }
 }

@@ -38,8 +38,8 @@ io.sockets.on('connection', socket => {
         votesSorted[
           Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
         ];
-
-      socket.broadcast.emit('taskList', winner);
+      let count = voteCounts[winner];
+      socket.broadcast.emit('taskList', winner, count);
       taskArray = [];
     }
   });
