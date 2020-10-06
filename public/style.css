@@ -39,15 +39,9 @@ body {
 }
 
 h1 {
-  font-family: 'Courier';
-  color: black;
-}
-<<<<<<< HEAD
-
-p {
   font-family: "Courier";
   color: black;
-=======
+}
 .container {
   position: relative;
   overflow: hidden;
@@ -63,5 +57,4 @@ p {
   width: 50%;
   height: 50%;
   margin: 0 auto;
->>>>>>> a4b42415eeff4438c253c284ff9c748b74363190
 }
