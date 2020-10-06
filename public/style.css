@@ -2,7 +2,7 @@ body {
   background-color: #ffab20;
 }
 .header {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 50px;
   color: #ffffff;
@@ -10,7 +10,7 @@ body {
 }
 
 .commands {
-  position: fixed;
+  position: absolute;
   top: 200px;
   left: 50px;
 }
@@ -35,6 +35,11 @@ body {
 }
 
 h1 {
+  font-family: "Courier";
+  color: black;
+}
+
+p {
   font-family: "Courier";
   color: black;
 }
