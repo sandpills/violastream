@@ -1,5 +1,5 @@
 body {
-  background-color: #ffab20;
+  background-color: #000000;
   width: 100vw;
   height: 100vh;
   padding: 0;
@@ -42,11 +42,11 @@ body {
 
 h1 {
   font-family: "Courier";
-  color: black;
+  color: #ffab20;
 }
 p {
   font-family: "Courier";
-  color: black;
+  color: #ffab20;
 }
 
 .container {
