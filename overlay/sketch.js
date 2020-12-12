@@ -1,7 +1,7 @@
 let socket;
 let title = '';
 let tasks = [];
-let winnerCount;
+// let winnerCount;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -33,11 +33,11 @@ function draw() {
 function receiveTask(data, count) {
   if (Array.isArray(data)) {
     tasks = data;
-  } else {
+  } else {  // if it's not an array, that means we're getting the winner message
     if (typeof data === 'string') {
       tasks = [];
       title = 'viola must: ' + data + ' (' + str(count) + ' votes)';
-      winnerCount = count;
+      // winnerCount = count;
     }
   }
 }

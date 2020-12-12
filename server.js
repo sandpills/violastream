@@ -12,6 +12,8 @@ let votesSorted = {};
 const io = require('socket.io')(http, options);
 io.on('connection', socket => {
   console.log(socket.id);
+
+  // any code here will run when a user connects 
 });
 
 // routes
@@ -23,17 +25,21 @@ http.listen(process.env.PORT || 3000, process.env.IP, () => {
   console.log('listening on *:3000');
 });
 
+
+
+
+
 io.sockets.on('connection', socket => {
-  socket.on('task', data => {
-    if (data.task !== 'endTask') {
+  socket.on('task', data => {  // socket listening to "task" coming in from HTML page
+    if (data.task !== 'endTask') { // task messages
       taskArray.push(data.task);
-      voteCounts = _.countBy(taskArray);
+      voteCounts = _.countBy(taskArray); // coming from 'lodash' array sorting package function
 
       votesSorted = Object.keys(voteCounts).sort(function (a, b) {
         return voteCounts[a] - voteCounts[b];
       });
-      socket.broadcast.emit('taskList', taskArray);
-    } else {
+      socket.broadcast.emit('taskList', taskArray); //send stuff out to clients
+    } else { // 'end task' coming fomr 'done' page, sorting votes
       let winner =
         votesSorted[
           Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
@@ -44,3 +50,5 @@ io.sockets.on('connection', socket => {
     }
   });
 });
+
+
