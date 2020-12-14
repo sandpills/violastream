@@ -17,7 +17,7 @@ body {
   position: relative;
   top: 3%;
   left: 50px;
-  height: 72vh;
+  height: 75vh;
 }
 
 .stream {
@@ -26,7 +26,7 @@ body {
 
 .commands {
   position: absolute;
-  bottom: 8%;
+  bottom: 12%;
 }
 
 .messagebox {
@@ -82,6 +82,7 @@ p {
 #messageinput {
   font-family: "Courier";
   color: #ffffff;
+  font-size: 0.8em;
 }
 
 .container {
