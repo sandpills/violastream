@@ -12,19 +12,19 @@ function setup() {
 function draw() {
   textFont('monospace');
   background(0, 255, 0);
-  textSize(22);
+  textSize(20);
   noStroke();
   rectMode(CORNER);
-  rect(0, 0, 270, 50 * tasks.length);
+  rect(0, 0, 265, 50 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 30 + i * 50);
   }
-  textSize(34);
+  textSize(32);
   textAlign(CENTER);
   if (title !== '') {
     rectMode(CENTER);
-    rect(width / 2, 40, 900, 50);
+    rect(width / 2, 40, 850, 50);
 
     text(title, width / 2, 50);
   }
