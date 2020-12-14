@@ -6,16 +6,28 @@ body {
   margin: 0;
 }
 .header {
-  position: absolute;
-  top: 20px;
+  position: relative;
+  top: 5%;
   left: 50px;
   color: #ffffff;
   width: 100%;
 }
 
+.stream {
+  position: relative;
+  top: 7%;
+  left: 50px;
+}
+
 .commands {
-  position: absolute;
-  top: 200px;
+  position: relative;
+  top: 10%;
+  left: 50px;
+}
+
+.stop {
+  position: relative;
+  top: 5%;
   left: 50px;
 }
 
@@ -34,6 +46,10 @@ body {
   cursor: pointer;
   transition-duration: 0.4s;
   outline: none;
+}
+
+#stopbutton {
+  background-color: #ffab20;
 }
 
 .button:hover {
