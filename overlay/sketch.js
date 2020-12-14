@@ -15,7 +15,7 @@ function draw() {
   textSize(20);
   noStroke();
   rectMode(CORNER);
-  rect(0, 0, 265, 50 * tasks.length);
+  rect(0, 0, 260, 40 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 30 + i * 50);
