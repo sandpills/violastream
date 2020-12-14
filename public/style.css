@@ -7,22 +7,26 @@ body {
 }
 .header {
   position: relative;
-  top: 5%;
+  top: 2%;
   left: 50px;
   color: #ffffff;
   width: 100%;
 }
 
+.content {
+  position: relative;
+  top: 3%;
+  left: 50px;
+  height: 70vh;
+}
+
 .stream {
   position: relative;
-  top: 7%;
-  left: 50px;
 }
 
 .commands {
-  position: relative;
-  top: 10%;
-  left: 50px;
+  position: absolute;
+  bottom: 5%;
 }
 
 .stop {
