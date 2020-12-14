@@ -12,7 +12,7 @@ function setup() {
 function draw() {
   textFont('monospace');
   background(0, 255, 0);
-  textSize(24);
+  textSize(22);
   noStroke();
   rectMode(CORNER);
   rect(0, 0, 270, 50 * tasks.length);
@@ -20,7 +20,7 @@ function draw() {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 30 + i * 50);
   }
-  textSize(36);
+  textSize(34);
   textAlign(CENTER);
   if (title !== '') {
     rectMode(CENTER);
