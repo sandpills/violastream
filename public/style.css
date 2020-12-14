@@ -17,7 +17,7 @@ body {
   position: relative;
   top: 3%;
   left: 50px;
-  height: 70vh;
+  height: 72vh;
 }
 
 .stream {
@@ -26,7 +26,14 @@ body {
 
 .commands {
   position: absolute;
-  bottom: 5%;
+  bottom: 8%;
+}
+
+.messagebox {
+  position: absolute;
+  right: 0px;
+  margin-right: 5%;
+  bottom: 1%;
 }
 
 .stop {
@@ -61,7 +68,7 @@ body {
 }
 
 #stopbutton:hover {
-  background-color: #9c9c9c;
+  background-color: #bb8757;
 }
 
 h1 {
@@ -71,6 +78,10 @@ h1 {
 p {
   font-family: "Courier";
   color: #ffab20;
+}
+#messageinput {
+  font-family: "Courier";
+  color: #ffffff;
 }
 
 .container {
