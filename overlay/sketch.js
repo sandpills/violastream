@@ -10,6 +10,7 @@ function setup() {
   socket.on('taskList', receiveTask);
 
   textspeech = new p5.Speech();
+  textspeech.speak('do stuffs'); 
 }
 
 function draw() {
