@@ -10,7 +10,6 @@ function setup() {
   socket.on('taskList', receiveTask);
 
   textspeech = new p5.Speech();
-  textspeech.speak('do stuffs'); 
 }
 
 function mousePressed(){
@@ -27,8 +26,8 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak('do stuffs'); 
-    
+    textspeech.speak(tasks[tasks.length - 1 - i]); 
+
   }
   textSize(32);
   textAlign(CENTER);
