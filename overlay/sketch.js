@@ -27,7 +27,7 @@ function draw() {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
     textspeech.speak(tasks[tasks.length - 1 - i]); 
-
+    textspeech.ended();
   }
   textSize(32);
   textAlign(CENTER);
