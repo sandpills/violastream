@@ -13,6 +13,10 @@ function setup() {
   textspeech.speak('do stuffs'); 
 }
 
+function mousePressed(){
+  textspeech.speak('do stuffs'); // initialize
+}
+
 function draw() {
   textFont('monospace');
   background(0, 255, 0);
@@ -23,6 +27,8 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
+    textspeech.speak('do stuffs'); 
+    
   }
   textSize(32);
   textAlign(CENTER);
