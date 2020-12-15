@@ -2,6 +2,7 @@ let socket;
 let title = '';
 let tasks = [];
 let textspeech;
+let speaking = false;
 // let winnerCount;
 
 function setup() {
@@ -26,8 +27,11 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak(tasks[tasks.length - 1 - i]); 
-    textspeech.ended(tasks[tasks.length - 1 - i]);
+    speaking = true;
+      if ( speaking === true ) {
+        textspeech.speak(tasks[tasks.length - 1 - i]); 
+        speaking = false;
+      }
   }
   textSize(32);
   textAlign(CENTER);
