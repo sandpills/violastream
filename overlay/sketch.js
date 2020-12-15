@@ -27,7 +27,7 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak(tasks.tasks); 
+    textspeech.speak(tasks.data); 
     // speaking = true;
     //   if ( speaking === true ) {
     //     textspeech.speak(tasks[tasks.length - 1 - i]); 
