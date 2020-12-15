@@ -2,9 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script src="p5.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/socket.io/socket.io.js"></script>
     <script src="/index.js"></script>
+    <script src="p5.speech.js"></script>
+    <script src="sketch.js"></script>
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -16,7 +19,7 @@
         action, until the same amount of stop votes are casted.
       </p>
     </div>
-    <div class="content">
+    <div class="content" id="content">
       <div class="stream">
         <iframe src="https://player.twitch.tv/?channel=violola&parent=violola.herokuapp.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe>
       </div>
@@ -34,12 +37,13 @@
         <button onClick="buttonClick(this)" class="button">scream</button>
         <button onClick="buttonClick(this)" class="button">strip</button>
         <button onClick="buttonClick(this)" class="button">drink water</button>
+        <button onClick="buttonClick(this)" class="button">paint face</button>
         <button class="button" id="stopbutton">STOP TASK</button>
       </div>
-      <div class="messagebox">
-        <label for="message" id="messageinput">tell me something    </label>
+      <div id="messagebox">
+        <!-- <label for="message" id="messageinput">tell me something    </label>
         <input type="text" id="message" name="message" minlength="4" maxlength="40">
-        <input type="submit" value="submit">
+        <input type="submit" value="submit"> -->
       </div>
     </div>
   </body>

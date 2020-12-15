@@ -29,11 +29,11 @@ body {
   bottom: 12%;
 }
 
-.messagebox {
+#messagebox {
   position: absolute;
   right: 0px;
-  margin-right: 5%;
-  bottom: 1%;
+  margin-right: 20%;
+  bottom: 5%;
 }
 
 .stop {
@@ -100,4 +100,8 @@ p {
   width: 50%;
   height: 50%;
   margin: 0 auto;
+}
+
+canvas {
+  display: block;
 }

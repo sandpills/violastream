@@ -18,7 +18,7 @@ function draw() {
   rect(0, 0, 260, 40 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
-    text(tasks[tasks.length - 1 - i], 10, 20 + i * 40);
+    text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
   }
   textSize(32);
   textAlign(CENTER);
