@@ -7,6 +7,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   socket = io.connect();
   socket.on('taskList', receiveTask);
+
+  textspeech = new p5.Speech();
 }
 
 function draw() {
@@ -19,9 +21,11 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
+    textspeech.speak(tasks[tasks.length - 1 - i]); 
   }
   textSize(32);
   textAlign(CENTER);
+  
   if (title !== '') {
     rectMode(CENTER);
     rect(width / 2, 40, 850, 50);
