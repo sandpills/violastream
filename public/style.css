@@ -32,8 +32,8 @@ body {
 #messagebox {
   position: absolute;
   right: 0px;
-  margin-right: 20%;
-  bottom: 5%;
+  margin-right: 25%;
+  bottom: 10%;
 }
 
 .stop {

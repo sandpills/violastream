@@ -23,7 +23,6 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak('do stuffs'); 
   }
   textSize(32);
   textAlign(CENTER);
