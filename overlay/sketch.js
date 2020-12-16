@@ -29,8 +29,8 @@ function draw() {
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
     speaking = true;
       if ( speaking === true ) {
-        textspeech.speak(tasks[i]); 
-        console.log (tasks[tasks.length - 1 - i]);
+        textspeech.speak(data); 
+        console.log (data);
         speaking = false;
       }
   }
