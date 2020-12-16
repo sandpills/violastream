@@ -24,7 +24,11 @@ body {
   position: relative;
 }
 
-.commands {
+.buttons-inactive {
+  pointer-events: none;
+}
+
+#commands {
   position: absolute;
   bottom: 12%;
 }
@@ -45,7 +49,7 @@ body {
 .button {
   background-color: white;
   border: #555555;
-  font-family: "Courier";
+  font-family: 'Courier';
   color: black;
   padding: 5px 15px;
   border-radius: 4px;
@@ -72,15 +76,15 @@ body {
 }
 
 h1 {
-  font-family: "Courier";
+  font-family: 'Courier';
   color: #ffab20;
 }
 p {
-  font-family: "Courier";
+  font-family: 'Courier';
   color: #ffab20;
 }
 #messageinput {
-  font-family: "Courier";
+  font-family: 'Courier';
   color: #ffffff;
   font-size: 0.8em;
 }
