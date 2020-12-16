@@ -41,11 +41,11 @@ function draw() {
   }
 
   // text flying thingy
-  textSize(28);
   for (let j = 0; j < w.length; j++) {
     w[j].moveAndDisplay();
     if (w[j].x <= -width) {
-      w.splice(j, 1);
+      w[j].x = null;
+      w[j].y = null;
     }
   }
 }
@@ -70,7 +70,8 @@ class Word {
   }
 
   moveAndDisplay() {
-    fill(255, this.opacity);
+    fill(255,0,0, this.opacity);
+    textSize(40);
     textAlign(LEFT);
     text(this.word, this.x + 20, this.y - 20);
     textAlign(CENTER);
