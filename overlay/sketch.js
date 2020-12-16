@@ -41,6 +41,7 @@ function draw() {
   }
 
   // text flying thingy
+  push();
   for (let j = 0; j < w.length; j++) {
     w[j].moveAndDisplay();
     if (w[j].x <= -width) {
@@ -48,6 +49,7 @@ function draw() {
       w[j].y = null;
     }
   }
+  PopStateEvent();
 }
 
 // text flying thingy
@@ -70,12 +72,13 @@ class Word {
   }
 
   moveAndDisplay() {
-    fill(255,0,0, this.opacity);
-    textSize(40);
+    let tWidth = textWidth(this.word);
+    fill(255);
     textAlign(LEFT);
-    text(this.word, this.x + 20, this.y - 20);
-    textAlign(CENTER);
-    this.x -= 3;
+    rect(this.x+10, this.y-50, tWidth+20, 40);
+    fill(0, this.opacity);
+    text(this.word, this.x+20, this.y-20);
+    this.x-=3;
   }
 }
 
