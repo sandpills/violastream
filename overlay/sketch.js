@@ -38,7 +38,48 @@ function draw() {
 
     text(title, width / 2, 50);
   }
+
+  // text flying thingy
+  textSize(28);
+  for (let i = 0; i < w.length; i++) {
+    w[i].moveAndDisplay();
+    if (w[i].x <= -width) {
+      //w.splice(i, 1);
+      w[i].x = null;
+      w[i].y = null;
+    }
+  }
 }
+
+// text flying thingy
+
+function greet() {
+  const sentiment = input.value();
+  if (sentiment.length > 0) {
+    let typedword = new Word(sentiment, width, random(10, height - 10));
+    w.push(typedword);
+    textspeech.speak(typedword.word);
+    console.log(typedword);
+    input.value('');
+  }
+}
+
+class Word {
+  constructor(word, x, y) {
+    this.word = word;
+    this.opacity = 255;
+    this.x = x;
+    this.y = y;
+  }
+
+  moveAndDisplay() {
+    fill(255, this.opacity);
+    textAlign(LEFT);
+    text(this.word, this.x + 20, this.y - 20);
+    textAlign(CENTER);
+    this.x -= 3;
+  
+// socket stuffs
 
 function receiveTask(data, count) {
   if (Array.isArray(data)) {
