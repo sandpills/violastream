@@ -49,7 +49,7 @@ function draw() {
       w[j].y = null;
     }
   }
-  PopStateEvent();
+  pop();
 }
 
 // text flying thingy
