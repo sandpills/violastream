@@ -1,5 +1,4 @@
-socket = io.connect();
-
+let socket = io.connect();
 let from;
 let to;
 let xOff = 0.0;
@@ -8,7 +7,6 @@ let vid;
 let textspeech;
 let timerCountDown = 5; // VIOLA use this variable to make a p tag or something that shows above the buttons. This will show the timer value after a button is clicked
 let countDown;
-
 let buttonsActive = true;
 
 function setup() {
@@ -36,14 +34,6 @@ function setup() {
 
 function draw() {
   clear();
-  for (let i = 0; i < w.length; i++) {
-    w[i].moveAndDisplay();
-    if (w[i].x <= -width) {
-      //w.splice(i, 1);
-      w[i].x = null;
-      w[i].y = null;
-    }
-  }
   buttonsDelayTimer();
 }
 
@@ -54,10 +44,7 @@ function typing() {
 function greet() {
   const sentiment = input.value();
   if (sentiment.length > 0) {
-    let typedword = new Word(sentiment, width, random(10, height - 10));
-    w.push(typedword);
-    textspeech.speak(typedword.word);
-    console.log(typedword);
+    socket.emit('greeting', sentiment);
     input.value('');
   }
 }

@@ -1,6 +1,7 @@
 let socket;
 let title = '';
 let tasks = [];
+let w = [];
 let textspeech;
 let speaking = false;
 // let winnerCount;
@@ -9,7 +10,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   socket = io.connect();
   socket.on('taskList', receiveTask);
-  socket.on('chatMessage', chatFromUser);
+  socket.on('greetingFromUser', displayMessageFromUser);
 
   textspeech = new p5.Speech();
 }
@@ -42,25 +43,21 @@ function draw() {
   // text flying thingy
   textSize(28);
   for (let j = 0; j < w.length; j++) {
-    w[i].moveAndDisplay();
-    if (w[i].x <= -width) {
-      //w.splice(i, 1);
-      w[i].x = null;
-      w[i].y = null;
+    w[j].moveAndDisplay();
+    if (w[j].x <= -width) {
+      w.splice(j, 1);
     }
   }
 }
 
 // text flying thingy
 
-function greet() {
-  const sentiment = input.value();
-  if (sentiment.length > 0) {
-    let typedword = new Word(sentiment, width, random(10, height - 10));
+function displayMessageFromUser(greeting) {
+  console.log(greeting);
+  if (greeting.length > 0) {
+    let typedword = new Word(greeting, width, random(10, height - 10));
     w.push(typedword);
     textspeech.speak(typedword.word);
-    console.log(typedword);
-    input.value('');
   }
 }
 
