@@ -30,7 +30,7 @@ function draw() {
     speaking = true;
       if ( speaking === true ) {
         textspeech.speak(tasks[i]); 
-        console.log (tasks[i]);
+        console.log (tasks[tasks.length - 1 - i]);
         speaking = false;
       }
   }
