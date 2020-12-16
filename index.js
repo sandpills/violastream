@@ -9,6 +9,7 @@ const options = {
 let taskArray = [];
 let voteCounts = {};
 let votesSorted = {};
+let stopTaskVotes = 0;
 const io = require('socket.io')(http, options);
 io.on('connection', socket => {
   console.log(socket.id);
@@ -30,25 +31,42 @@ io.sockets.on('connection', socket => {
     // socket listening to "task" coming in from HTML page
     if (data.task !== 'endTask') {
       // task messages
-      taskArray.push(data.task);
-      voteCounts = _.countBy(taskArray); // coming from 'lodash' array sorting package function
+      if (data.task === 'STOP TASK') {
+        socket.broadcast.emit('greetingFromUser', 'STOP TASK');
+        stopTaskVotes++;
+        let winner =
+          votesSorted[
+            Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
+          ];
+        let count = voteCounts[winner];
+        if (stopTaskVotes > count && stopTaskVotes > 5) {
+          endTask(socket);
+          stopTaskVotes = 0;
+        }
+      } else {
+        taskArray.push(data.task);
 
-      votesSorted = Object.keys(voteCounts).sort(function (a, b) {
-        return voteCounts[a] - voteCounts[b];
-      });
-      socket.broadcast.emit('taskList', taskArray); //send stuff out to clients
+        voteCounts = _.countBy(taskArray); // coming from 'lodash' array sorting package function
+
+        votesSorted = Object.keys(voteCounts).sort(function (a, b) {
+          return voteCounts[a] - voteCounts[b];
+        });
+        socket.broadcast.emit('taskList', taskArray); //send stuff out to clients
+      }
     } else {
-      // 'end task' coming fomr 'done' page, sorting votes
-      let winner =
-        votesSorted[
-          Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
-        ];
-      let count = voteCounts[winner];
-      socket.broadcast.emit('taskList', winner, count);
-      taskArray = [];
+      endTask(socket);
     }
   });
   socket.on('greeting', greeting => {
     socket.broadcast.emit('greetingFromUser', greeting);
   });
 });
+
+function endTask(socket) {
+  // 'end task' coming fomr 'done' page, sorting votes
+  let winner =
+    votesSorted[Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]];
+  let count = voteCounts[winner];
+  socket.broadcast.emit('taskList', winner, count);
+  taskArray = [];
+}
