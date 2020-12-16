@@ -13,7 +13,7 @@ function setup() {
   textspeech = new p5.Speech();
 }
 
-function mousePressed(){
+function mousePressed() {
   textspeech.speak('hello viola'); // initialize
 }
 
@@ -27,16 +27,10 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    speaking = true;
-    if ( speaking === true ) {
-      textspeech.speak(tasks[i]); 
-      console.log (tasks[i]);
-      speaking = false;
-    }
   }
   textSize(32);
   textAlign(CENTER);
-  
+
   if (title !== '') {
     rectMode(CENTER);
     rect(width / 2, 40, 850, 50);
@@ -47,8 +41,10 @@ function draw() {
 
 function receiveTask(data, count) {
   if (Array.isArray(data)) {
-      tasks = data;      
-    }else {  // if it's not an array, that means we're getting the winner message
+    tasks = data;
+    textspeech.speak(data[data.length - 1]);
+  } else {
+    // if it's not an array, that means we're getting the winner message
     if (typeof data === 'string') {
       tasks = [];
       title = 'viola must: ' + data + ' (' + str(count) + ' votes)';
