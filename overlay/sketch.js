@@ -30,7 +30,6 @@ function draw() {
     speaking = true;
       if ( speaking === true ) {
         textspeech.speak(tasks[i]); 
-        noLoop(); 
         speaking = false;
       }
   }
