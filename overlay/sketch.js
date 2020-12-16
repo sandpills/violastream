@@ -74,8 +74,9 @@ class Word {
   moveAndDisplay() {
     let tWidth = textWidth(this.word);
     fill(255);
-    textAlign(LEFT);
-    rect(this.x+10, this.y-50, tWidth+20, 40);
+    textAlign(CENTER);
+    rectMode(CENTER);
+    rect(this.x+10, this.y-30, tWidth+20, 40);
     fill(0, this.opacity);
     text(this.word, this.x+20, this.y-20);
     this.x-=3;
