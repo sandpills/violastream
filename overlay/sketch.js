@@ -41,12 +41,14 @@ function draw() {
 
 function receiveTask(data, count) {
   if (Array.isArray(data)) {
-    tasks = data;
-    speaking = true;
-    if ( speaking === true ) {
-      textspeech.speak(data); 
-      console.log (data);
-      speaking = false;
+    for (let i = 0; i < tasks.length; i++) {
+      tasks = data;
+      speaking = true;
+      if ( speaking === true ) {
+        textspeech.speak(tasks[i]); 
+        console.log (tasks[i]);
+        speaking = false;
+      }
     }
   } else {  // if it's not an array, that means we're getting the winner message
     if (typeof data === 'string') {
