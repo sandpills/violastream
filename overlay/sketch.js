@@ -93,6 +93,7 @@ function receiveTask(data, count) {
     if (typeof data === 'string') {
       tasks = [];
       title = 'viola must: ' + data + ' (' + str(count) + ' votes)';
+      textspeech.speak(title);
       // winnerCount = count;
     }
   }
