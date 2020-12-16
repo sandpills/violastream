@@ -47,10 +47,8 @@ function draw() {
 
 function receiveTask(data, count) {
   if (Array.isArray(data)) {
-      tasks = data;
-      
-    }
-  } else {  // if it's not an array, that means we're getting the winner message
+      tasks = data;      
+    }else {  // if it's not an array, that means we're getting the winner message
     if (typeof data === 'string') {
       tasks = [];
       title = 'viola must: ' + data + ' (' + str(count) + ' votes)';
