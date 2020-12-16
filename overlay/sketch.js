@@ -14,7 +14,7 @@ function setup() {
 }
 
 function mousePressed(){
-  textspeech.speak('do stuffs'); // initialize
+  textspeech.speak('hello viola'); // initialize
 }
 
 function draw() {
@@ -27,7 +27,7 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak(data); 
+    textspeech.speak(tasks[i]); 
     // speaking = true;
     //   if ( speaking === true ) {
     //     textspeech.speak(tasks[tasks.length - 1 - i]); 
