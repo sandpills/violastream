@@ -78,7 +78,9 @@ class Word {
     text(this.word, this.x + 20, this.y - 20);
     textAlign(CENTER);
     this.x -= 3;
-  
+  }
+}
+
 // socket stuffs
 
 function receiveTask(data, count) {
