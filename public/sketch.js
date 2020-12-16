@@ -94,6 +94,8 @@ function buttonClick(e) {
   console.log(e.innerText); // any tag that's inside the HTML < > tag
   sendTask(e.innerText);
   buttonsActive = false;
+
+  // delay timer
   countDown = setInterval(() => {
     timerCountDown--;
     console.log(timerCountDown);
@@ -101,6 +103,8 @@ function buttonClick(e) {
       clearInterval(countDown);
     }
   }, 1000);
+
+  //remove class etc after 5sec
   setTimeout(() => {
     buttonsActive = true;
   }, 5000);
