@@ -9,6 +9,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   socket = io.connect();
   socket.on('taskList', receiveTask);
+  socket.on('chatMessage', chatFromUser);
 
   textspeech = new p5.Speech();
 }

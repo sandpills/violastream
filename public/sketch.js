@@ -28,9 +28,6 @@ function setup() {
 
   //***everything else can be commented out****//
 
-  var canvas = createCanvas(600, 400);
-  canvas.parent('content');
-  canvas.position(0, 0);
   textAlign(CENTER);
   textSize(28);
 
@@ -48,12 +45,6 @@ function draw() {
     }
   }
   buttonsDelayTimer();
-}
-
-function buttonsDelayTimer() {
-  !buttonsActive
-    ? document.getElementById('commands').classList.add('buttons-inactive')
-    : document.getElementById('commands').classList.remove('buttons-inactive');
 }
 
 function typing() {
@@ -90,6 +81,12 @@ class Word {
   }
 }
 
+function buttonsDelayTimer() {
+  !buttonsActive
+    ? document.getElementById('commands').classList.add('buttons-inactive')
+    : document.getElementById('commands').classList.remove('buttons-inactive');
+}
+
 function buttonClick(e) {
   console.log(e.innerText); // any tag that's inside the HTML < > tag
   sendTask(e.innerText);
@@ -100,6 +97,7 @@ function buttonClick(e) {
     timerCountDown--;
     console.log(timerCountDown);
     if (timerCountDown == 0) {
+      timerCountDown = 5;
       clearInterval(countDown);
     }
   }, 1000);
