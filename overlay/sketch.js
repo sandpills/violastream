@@ -76,7 +76,7 @@ class Word {
     fill(255);
     textAlign(CENTER);
     rectMode(CENTER);
-    rect(this.x+10, this.y-30, tWidth+20, 40);
+    rect(this.x+20, this.y-30, tWidth+20, 40);
     fill(0, this.opacity);
     text(this.word, this.x+20, this.y-20);
     this.x-=3;
