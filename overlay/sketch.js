@@ -27,12 +27,12 @@ function draw() {
   for (let i = 0; i < tasks.length; i++) {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
-    textspeech.speak(tasks[i]); 
-    // speaking = true;
-    //   if ( speaking === true ) {
-    //     textspeech.speak(tasks[tasks.length - 1 - i]); 
-    //     speaking = false;
-    //   }
+    speaking = true;
+      if ( speaking === true ) {
+        textspeech.speak(tasks[i]); 
+        noLoop(); 
+        speaking = false;
+      }
   }
   textSize(32);
   textAlign(CENTER);
