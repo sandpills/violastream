@@ -41,7 +41,7 @@ function draw() {
 
   // text flying thingy
   textSize(28);
-  for (let i = 0; i < w.length; i++) {
+  for (let j = 0; j < w.length; j++) {
     w[i].moveAndDisplay();
     if (w[i].x <= -width) {
       //w.splice(i, 1);
