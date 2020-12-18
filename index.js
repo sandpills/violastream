@@ -39,7 +39,7 @@ io.sockets.on('connection', socket => {
             Object.keys(votesSorted)[Object.keys(votesSorted).length - 1]
           ];
         let count = voteCounts[winner];
-        if (stopTaskVotes > count && stopTaskVotes > 5) {
+        if (stopTaskVotes > count || stopTaskVotes > 4) {
           endTask(socket);
           stopTaskVotes = 0;
         }
