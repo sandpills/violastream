@@ -6,15 +6,51 @@ let textspeech;
 let speaking = false;
 // let winnerCount;
 
+
+let serial;
+let portName = '/dev/tty.usbmodem144301';
+let outByte = 0;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   socket = io.connect();
   socket.on('taskList', receiveTask);
   socket.on('greetingFromUser', displayMessageFromUser);
   socket.on('cameraLeftButton', cameraLeft);
+  socket.on('cameraRightButton', cameraRight);
+  socket.on('cameraUpButton', cameraUp);
+  socket.on('cameraDownButton', cameraDown);
 
   textspeech = new p5.Speech();
+
+  //serial
+  serial = new p5.SerialPort(); 
+  serial.on('open', portOpen);
+  serial.on('data', serialEvent);
+  serial.on('error', serialError); 
+  serial.on('close', portClose); 
+ 
+  serial.list(); 
+  serial.open(portName);
 }
+
+function portOpen() {
+  console.log('the serial port opened.')
+}
+ 
+function serialEvent() {
+  let inByte = serial.read();
+  inData = inByte; //store in global variable
+}
+ 
+function serialError(err) {
+  console.log('Something went wrong with the serial port. ' + err);
+}
+ 
+function portClose() {
+  console.log('The serial port closed.');
+}
+
 
 function mousePressed() {
   textspeech.speak('hello viola'); // initialize
@@ -103,6 +139,22 @@ function receiveTask(data, count) {
 
 function cameraLeft() {
   console.log("left");
+  serial.write("L");
+}
+
+function cameraRight() {
+  console.log("right");
+  serial.write("R");
+}
+
+function cameraUp() {
+  console.log("up");
+  serial.write("U");
+}
+
+function cameraDown() {
+  console.log("down");
+  serial.write("D");
 }
 
 function windowResized() {
