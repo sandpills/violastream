@@ -11,6 +11,7 @@ function setup() {
   socket = io.connect();
   socket.on('taskList', receiveTask);
   socket.on('greetingFromUser', displayMessageFromUser);
+  socket.on('cameraLeftButton', cameraLeft);
 
   textspeech = new p5.Speech();
 }
@@ -98,6 +99,10 @@ function receiveTask(data, count) {
       // winnerCount = count;
     }
   }
+}
+
+function cameraLeft() {
+  console.log("left");
 }
 
 function windowResized() {

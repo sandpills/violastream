@@ -43,6 +43,8 @@ io.sockets.on('connection', socket => {
           endTask(socket);
           stopTaskVotes = 0;
         }
+      } else if (data.task === 'left') { //THIS WHOLE SECTION IS TRYING TO DO THE CAMERA THING!!!
+        socket.broadcast.emit('cameraLeftButton');
       } else {
         taskArray.push(data.task);
 
