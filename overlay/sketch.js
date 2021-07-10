@@ -6,7 +6,6 @@ let textspeech;
 let speaking = false;
 // let winnerCount;
 
-
 let serial;
 let portName = '/dev/tty.usbmodem144301';
 let outByte = 0;
