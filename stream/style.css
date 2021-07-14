@@ -164,3 +164,74 @@ p {
 canvas {
   display: block;
 }
+
+#mobileText {
+  display: none;
+}
+
+/* mobile version */
+
+@media screen and (max-width: 500px) {
+  body {
+    background-color: black;
+  }
+
+  h1 {
+    font-size: 15pt;
+  }
+
+  p {
+    font-family: "monaco";
+    font-size: 10pt;
+  }
+
+  .button {
+    font-size: 10pt;
+  }
+
+  #commands {
+    position: fixed;
+    width: 100%;
+    height: 40%;
+    left: 2%;
+    top: 10%;
+  }
+
+  #mobileText {
+    display: block;
+    position: fixed;
+    left: 2%;
+    bottom: 22%;
+  }
+
+  #camera {
+    position: fixed;
+    width: 50%;
+    height: 18%;
+    left: 2%;
+    bottom: 3%;
+  }
+
+  #messagebox {
+    position: fixed;
+    left: 2%;
+    top: 65%;
+  }
+
+  .streamWrapper {
+    display: none;
+  }
+  /*   
+  #mobileText {
+      display: block;
+      text-align: center;
+  }
+
+  #mobileBg {
+      background-image: url(yolk.png);
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: 30%;
+    }
+     */
+}
