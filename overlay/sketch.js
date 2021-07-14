@@ -60,19 +60,24 @@ function draw() {
   textFont('monaco');
   background(0, 255, 0);
   textSize(20);
+  textStyle(BOLD);
   noStroke();
-  rectMode(CORNER);
-  rect(0, 0, 260, 40 * tasks.length);
+  fill(0, 0, 0, 100);
+  // rectMode(CORNER);
+  // rect(0, 0, 260, 40 * tasks.length);
   for (let i = 0; i < tasks.length; i++) {
+    fill(255);
     textAlign(LEFT);
-    text(tasks[tasks.length - 1 - i], 10, 25 + i * 40);
+    text(tasks[tasks.length - 1 - i], windowWidth - windowWidth/5, 200 + i * 40);
   }
-  textSize(32);
+  textSize(28);
   textAlign(CENTER);
 
   if (title !== '') {
     rectMode(CENTER);
+    fill(0);
     rect(width / 2, 40, 850, 50);
+    fill(255);
     text(title, width / 2, 50);
   }
 
@@ -86,6 +91,11 @@ function draw() {
     }
   }
   pop();
+
+  rectMode(CORNER);
+  fill(0, 255, 0);
+  rect(0, windowHeight - windowHeight/3, windowWidth, windowHeight/2);
+
 }
 
 // text flying thingy
