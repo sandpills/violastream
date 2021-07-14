@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violastream</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="left-half">
+      <div class="header">
+        <div class="grid" id="headerGrid">
+          <h1 id="headerText">✨ welcome to violastream 3.0</h1>
+        </div>
+      </div>
+      <div class="intro">
+        <p>VIOLASTREAM is an interactive livestream performance where you, the audiences, collectively vote for Viola's actions. Once you enter the stream, you have access to buttons with different action choices to vote for, camera direction control, and a comment box. At my isolated performance space, a computer displays and reads out all of your inputs in real time, calculates votes and commands me to carry out the highest voted tasks.</p>
+      </div>
+      <div class="wrap-collabsible">
+        <input id="collapsible" class="toggle" type="checkbox">
+          <label for="collapsible" class="lbl-toggle">Rules for the curious minds </label>
+          <div class="collapsible-content">
+            <div class="content-inner">
+              <p> + One button can be pressed every 5 seconds, which include tasks, camera control, and "stop task". <br><br>
+              + Whenever an old task ends, the task with most votes accumilated while I was doing the previous task will be selected to perform next. <br><br>
+              + To stop current task, more "stop task" votes need to be casted than its vote when selected. </p>
+            </div>
+          </div>
+      </div>
+      <div class="more-info">
+        <p> Code for the project can be found <a href="https://github.com/viololahe/violastream">+ here</a> <br>
+            Watch video documentation <a href="https://vimeo.com/503508610">+ here</a><br>
+            VIOLASTREAM @ xCoAx 2021 <a href="https://2021.xcoax.org/vhe/">+ here</a>
+        </p>
+      </div>
+    </div>
+    <div class="right-half"> 
+      <a id="enter" class=grid href="stream.html">ENTER STREAM</a>
+    </div>
+  </body>
+</html>
