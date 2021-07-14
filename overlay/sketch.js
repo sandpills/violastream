@@ -7,7 +7,7 @@ let speaking = false;
 // let winnerCount;
 
 let serial;
-let portName = '/dev/tty.usbmodem144301';
+let portName = '/dev/tty.usbmodem144201';
 let outByte = 0;
 
 function setup() {
@@ -38,6 +38,7 @@ function portOpen() {
 }
  
 function serialEvent() {
+  console.log('serial event')
   let inByte = serial.read();
   inData = inByte; //store in global variable
 }
@@ -56,7 +57,7 @@ function mousePressed() {
 }
 
 function draw() {
-  textFont('monospace');
+  textFont('monaco');
   background(0, 255, 0);
   textSize(20);
   noStroke();
@@ -72,7 +73,6 @@ function draw() {
   if (title !== '') {
     rectMode(CENTER);
     rect(width / 2, 40, 850, 50);
-
     text(title, width / 2, 50);
   }
 
@@ -139,21 +139,25 @@ function receiveTask(data, count) {
 function cameraLeft() {
   console.log("left");
   serial.write("L");
+  textspeech.speak("camera left");
 }
 
 function cameraRight() {
   console.log("right");
   serial.write("R");
+  textspeech.speak("camera right");
 }
 
 function cameraUp() {
   console.log("up");
   serial.write("U");
+  textspeech.speak("camera up");
 }
 
 function cameraDown() {
   console.log("down");
   serial.write("D");
+  textspeech.speak("camera down");
 }
 
 function windowResized() {

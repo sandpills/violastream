@@ -80,7 +80,7 @@ p {
   text-align: center;
   left: 50%;
   top: 50%;
-  transform: Translate(-55%, -50%);
+  transform: Translate(-60%, -50%);
   transition: all 0.25s ease-out;
 }
 

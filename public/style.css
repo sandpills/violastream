@@ -11,14 +11,16 @@ div:first-child {
   opacity: 0.99;
 }
 
+/* stream */
+
 .streamWrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 0;
+  padding-top: 1%;
   height: 0;
 }
 .streamWrapper iframe {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -38,15 +40,57 @@ div:first-child {
 }
 
 #commands {
+  position: fixed;
+  width: 40%;
+  left: 2%;
+  bottom: 3%;
+}
+
+#camera {
+  position: fixed;
+  width: 20%;
+  height: 20%;
+  right: 2%;
+  bottom: 3%;
+}
+
+#lbutton {
   position: absolute;
-  bottom: 12%;
+  left: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+#rbutton {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+#ubutton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+#dbutton {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.arrow {
+  height: 20px;
+  width: 20px;
 }
 
 #messagebox {
-  position: absolute;
-  right: 0px;
-  margin-right: 25%;
-  bottom: 10%;
+  position: fixed;
+  right: 25%;
+  top: 3%;
 }
 
 .stop {
@@ -56,12 +100,14 @@ div:first-child {
 }
 
 .button {
-  background-color: white;
-  border: #555555;
-  font-family: "Courier";
-  color: black;
+  background-color: rgba(0, 0, 0, 0.582);
+  border-top: 1px solid #ffab20;
+  border-right: 1px solid #ffab20;
+  border-bottom: 1px solid #ffab20;
+  border-left: 1px solid #ffab20;
+  font-family: "monaco";
+  color: rgb(255, 255, 255);
   padding: 5px 15px;
-  border-radius: 4px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -74,14 +120,29 @@ div:first-child {
 
 #stopbutton {
   background-color: #ffab20;
+  color: black;
+  border-top: 1px solid #ffab20;
+  border-right: 1px solid #ffab20;
+  border-bottom: 1px solid #ffab20;
+  border-left: 1px solid #ffab20;
 }
 
 .button:hover {
-  background-color: #d9d9d9;
+  background-color: #ffffff;
+  color: black;
+  border-top: 1px solid #ffab20;
+  border-right: 1px solid #ffab20;
+  border-bottom: 1px solid #ffab20;
+  border-left: 1px solid #ffab20;
 }
 
 #stopbutton:hover {
-  background-color: #bb8757;
+  background-color: #ffffff;
+  color: black;
+  border-top: 1px solid #ffab20;
+  border-right: 1px solid #ffab20;
+  border-bottom: 1px solid #ffab20;
+  border-left: 1px solid #ffab20;
 }
 
 h1 {
@@ -93,27 +154,11 @@ p {
   font-family: "nomaco";
   color: #ffab20;
 }
+
 #messageinput {
-  font-family: "Courier";
+  font-family: "monaco";
   color: #ffffff;
   font-size: 0.8em;
-}
-
-.container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
-.iframe {
-  position: absolute;
-  top: 300px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 50%;
-  margin: 0 auto;
 }
 
 canvas {

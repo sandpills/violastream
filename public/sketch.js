@@ -18,11 +18,24 @@ function setup() {
   input.parent('messagebox');
   input.mousePressed(typing);
   input.position(0, 0);
+  input.style('font-size', 14 + 'px');
+  input.style('font-family', 'monaco');
+  input.style('padding', '2px 10px');
   // the submit button
   button = createButton('submit');
   button.parent('messagebox');
   button.mousePressed(greet);
-  button.position(input.x + input.width + 5, 0);
+  button.position(input.x + input.width + 40, 0);
+  let col = color(0, 0, 0, 0.582);
+  button.style('font-size', 14 + 'px');
+  button.style('background-color', col);
+  button.style('color', '#ffffff');
+  button.style('font-family', 'monaco');
+  button.style('padding', '2px 10px');
+  button.style('border-top', '1px solid #ffab20');
+  button.style('border-right', '1px solid #ffab20');
+  button.style('border-left', '1px solid #ffab20');
+  button.style('border-bottom', '1px solid #ffab20');
 
   //***everything else can be commented out****//
 
@@ -70,8 +83,8 @@ class Word {
 
 function buttonsDelayTimer() {
   !buttonsActive
-    ? document.getElementById('commands').classList.add('buttons-inactive')
-    : document.getElementById('commands').classList.remove('buttons-inactive');
+    ? document.getElementById('commands', 'camera').classList.add('buttons-inactive')
+    : document.getElementById('commands', 'camera').classList.remove('buttons-inactive');
 }
 
 function buttonClick(e) {
