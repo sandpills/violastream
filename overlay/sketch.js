@@ -70,7 +70,7 @@ function draw() {
     textAlign(LEFT);
     text(tasks[tasks.length - 1 - i], windowWidth - windowWidth/5, 200 + i * 40);
   }
-  textSize(28);
+  textSize(25);
   textAlign(CENTER);
 
   if (title !== '') {
