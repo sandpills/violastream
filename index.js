@@ -19,6 +19,7 @@ io.on('connection', socket => {
 
 // routes
 app.use('/', express.static('public'));
+app.use('/stream', express.static('stream'));
 app.use('/overlay', express.static('overlay'));
 app.use('/done', express.static('done'));
 
