@@ -76,9 +76,9 @@ function draw() {
   if (title !== '') {
     rectMode(CENTER);
     fill(0);
-    rect(width / 2, 40, 850, 50);
+    rect(width / 2, 70, 680, 50);
     fill(255);
-    text(title, width / 2, 50);
+    text(title, width / 2, 80);
   }
 
   // text flying thingy
@@ -92,6 +92,7 @@ function draw() {
   }
   pop();
 
+  // green rectangle to block off lower half
   rectMode(CORNER);
   fill(0, 255, 0);
   rect(0, windowHeight - windowHeight/3, windowWidth, windowHeight/2);

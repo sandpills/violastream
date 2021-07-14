@@ -26,9 +26,8 @@ function setup() {
   button.parent('messagebox');
   button.mousePressed(greet);
   button.position(input.x + input.width + 50, 0);
-  let col = color(0, 0, 0, 0.582);
   button.style('font-size', 14 + 'px');
-  button.style('background-color', col);
+  button.style('background-color', 'rgba(0, 0, 0, 0.7)');
   button.style('color', '#ffffff');
   button.style('font-family', 'monaco');
   button.style('padding', '2px 10px');
